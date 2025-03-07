@@ -1,0 +1,85 @@
+<div class="card">
+  <div class="card-details">
+    <div class="card-detail">
+      <label for="launchName">Launch Name:</label>
+      <p id="launchName">{{ launchData().name }}</p>
+    </div>
+
+    <div class="card-detail">
+      <label for="launchDate">Launch Date (UTC):</label>
+      <p id="launchDate">{{ launchData().date_utc }}</p>
+    </div>
+
+    <div class="card-detail">
+      <label for="rocketName">Rocket Name:</label>
+      <p id="rocketName">{{ rocketData?.name }}</p>
+    </div>
+
+    <div class="card-detail">
+      <label for="launchpadName">Launchpad Name:</label>
+      <p id="launchpadName">{{ launchpadData?.name }}</p>
+    </div>
+
+    <div class="card-detail">
+      <label for="links">Links:</label>
+      <div id="links" class="links">
+        @if(launchData().links.article) {
+        <a href="{{ launchData().links.article }}" target="_blank">
+          <img src="article.png" alt="Article" width="20" height="20" />
+          <p>Article</p>
+        </a>
+        } @if(launchData().links.webcast) {
+        <a href="{{ launchData().links.webcast }}" target="_blank">
+          <img src="youtube.png" alt="Webcast" width="20" height="20" />
+          Youtube</a
+        >
+        } @if(launchData().links.wikipedia) {
+        <a href="{{ launchData().links.wikipedia }}" target="_blank">
+          <img src="wikipedia.png" alt="Wikipedia" width="20" height="20" />
+          Wikipedia</a
+        >
+        } @if(launchData().links.reddit.campaign) {
+        <a href="{{ launchData().links.reddit.campaign }}" target="_blank">
+          <img src="reddit.png" alt="Reddit" width="20" height="20" />
+          Reddit-Campaign</a
+        >
+        } @if(launchData().links.reddit.launch) {
+        <a href="{{ launchData().links.reddit.launch }}" target="_blank">
+          <img src="reddit.png" alt="Reddit" width="20" height="20" />
+          Reddit-Launch</a
+        >
+        } @if(launchData().links.reddit.media) {
+        <a href="{{ launchData().links.reddit.media }}" target="_blank">
+          <img src="reddit.png" alt="Reddit" width="20" height="20" />
+
+          Reddit-Media</a
+        >
+        } @if(launchData().links.reddit.recovery) {
+        <a href="{{ launchData().links.reddit.recovery }}" target="_blank">
+          <img src="reddit.png" alt="Reddit" width="20" height="20" />
+          Reddit-Recovery</a
+        >
+        }
+      </div>
+    </div>
+
+    <div class="card-detail">
+      <label for="patch">Crew Patch:</label>
+      <p id="patch">
+        <a href="{{ launchData().links.patch.small }}" target="_blank">
+          <img
+            [src]="launchData().links.patch.small || 'placeholder.png'"
+            alt="Patch"
+            width="100"
+          />
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="card-image">
+    <img
+      [src]="rocketData?.flickr_images?.[0] || 'placeholder.png'"
+      alt="Rocket"
+    />
+  </div>
+</div>
